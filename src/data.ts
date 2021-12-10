@@ -11,12 +11,12 @@ export default {
 					url: 'https://www.instagram.com/asul.dev/',
 				},
 				{
-					name: 'artstation',
+					name: 'Artstation',
 					account: 'asuldev',
 					url: 'https://www.artstation.com/asuldev',
 				},
 				{
-					name: 'itch.io',
+					name: 'Itch.io',
 					account: 'asuldev',
 					url: 'https://asuldev.itch.io/',
 				},

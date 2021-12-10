@@ -34,17 +34,13 @@
 				{#each profiles as profile}
 					<p class="socialName">
 						{profile.name}:
-						<a target="_blank" href={profile.url}
-							>{profile.account}</a
-						>
+						<a target="_blank" href={profile.url}>
+							{profile.account}
+						</a>
 					</p>
 				{/each}
 			</div>
-			<img
-				class="profilePic"
-				src={profilePic}
-				alt={profiles[0].account}
-			/>
+			<img class="profilePic" src={profilePic} alt={name} />
 		</div>
 		<p>{message}</p>
 	</div>

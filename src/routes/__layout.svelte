@@ -1,19 +1,13 @@
 <script lang="ts">
 	import { onMount } from 'svelte'
 
+	import generateSnowflakes from '../scripts/generateSnowflakes'
+
 	let audio: HTMLAudioElement
 	let audioButton: HTMLSpanElement
 
 	onMount(() => {
-		const body = document.querySelector('body')
-		// const snowFlakes = []
-		for (let index = 0; index < 50; index++) {
-			body.insertAdjacentHTML(
-				'afterbegin',
-				'<span class="snowflake" id={snowFlake} />'
-			)
-			// snowFlakes.push(0)
-		}
+		generateSnowflakes()
 		audio.volume = 0.1
 		audio.loop = true
 	})
@@ -55,9 +49,6 @@
 <audio src="/audio/jingle-bells.mp3" bind:this={audio} />
 
 <main>
-	<!-- {#each snowFlakes as snowFlake}
-		<span class="snowflake" id={snowFlake} />
-	{/each} -->
 	<slot />
 </main>
 <footer>&copy;Augusto do Monte Pieper</footer>

@@ -1,4 +1,15 @@
-/* https://www.youtube.com/watch?v=XO02P3QwENo */
+.snowflake {
+	width: 0.5rem;
+	height: 0.5rem;
+	background-color: #fff;
+	position: absolute;
+	border-radius: 50%;
+	top: -5vh;
+	z-index: -10;
+	filter: blur(2px);
+}
+
+/* https://www.youtube.com/watch?v=XO02P3QwENo
 .snowflake {
 	--size: 4px;
 	width: var(--size);
@@ -418,7 +429,7 @@
 	animation: snowfall 11s linear infinite;
 	animation-delay: -1s;
 }
-/* added small blur every 6 snowflakes*/
+/* added small blur every 6 snowflakes
 .snowflake:nth-child(6n) {
 	filter: blur(1px);
-}
+} */
