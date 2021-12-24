@@ -1,26 +1,5 @@
 <script lang="ts">
-	import { onMount } from 'svelte'
-
-	import generateSnowflakes from '../scripts/generateSnowflakes'
-
-	let audio: HTMLAudioElement
-	let audioButton: HTMLSpanElement
-
-	onMount(() => {
-		generateSnowflakes()
-		audio.volume = 0.1
-		audio.loop = true
-	})
-
-	function handleMusicState() {
-		if (audio.paused) {
-			audio.play()
-			audioButton.replaceChildren('墳')
-		} else {
-			audio.pause()
-			audioButton.replaceChildren('ﱝ')
-		}
-	}
+	import Header from '../components/Header.svelte'
 </script>
 
 <svelte:head>
@@ -34,20 +13,8 @@
 	<link rel="stylesheet" href="/css/snow.css" />
 	<title>xmas collab</title>
 </svelte:head>
-<header>
-	<img src="https://dukebr.com/img/logo.png" alt="logo" />
-	<h1>Dibiaru Xmas Collab</h1>
-	<ul>
-		<li>
-			<span bind:this={audioButton} on:click={handleMusicState}>ﱝ</span>
-		</li>
-		<li>home</li>
-		<li>cases</li>
-		<li>collab</li>
-	</ul>
-</header>
-<audio src="/audio/jingle-bells.mp3" bind:this={audio} />
-
+<a href="#cases">conteúdo principal</a>
+<Header />
 <main>
 	<slot />
 </main>
@@ -57,43 +24,23 @@
 	* {
 		font-family: 'Titillium Web', sans-serif;
 		color: #a9b1d6;
-		scroll-behavior: smooth;
 	}
-	header {
-		position: sticky;
-		z-index: 5;
-		top: 0;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: 1rem;
-		background: #32344a;
-	}
-	img {
-		max-height: 1.3rem;
-		margin-left: 1rem;
-	}
-	h1 {
+	a {
 		position: absolute;
-		left: 50vw;
-		transform: translateX(-50%);
-		font-family: 'Corinthia', cursive;
-		font-size: 1.8rem;
+		top: 0;
+		transform: translateY(-100%);
+		z-index: 20;
+		padding: 1rem;
+		background-color: #24283b;
+		border-radius: 0 0 0.5rem 0.5rem;
+		box-shadow: 1px 1px 1px 1px rgba(36, 40, 59, 0.5);
+		color: #f5f5f5;
+		transition: all 0.3s ease-in-out;
 	}
-	ul {
-		align-items: center;
-		display: flex;
+	a:focus {
+		transform: translateY(0);
 	}
-	span {
-		font-family: 'FiraCodeNerdFont';
-		font-size: 1.4rem;
-	}
-	li {
-		font-size: 1rem;
-		list-style: none;
-		margin: 0 1rem;
-		cursor: pointer;
-	}
+
 	main {
 		display: flex;
 		flex-direction: column;
@@ -101,7 +48,7 @@
 		justify-content: center;
 	}
 	footer {
-		text-align: end;
+		text-align: center;
 		padding: 1rem;
 		background: #32344a;
 	}

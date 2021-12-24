@@ -14,21 +14,42 @@
 	export let art: string
 	export let message: string
 	export let name: string
+	export let dir: boolean
+	export let pic: boolean
 
 	let canvas: HTMLCanvasElement
 	let container: HTMLDivElement
+	let profileTop: HTMLDivElement
+	let img: HTMLImageElement
 
 	onMount(() => {
 		const gradient = generateGradient()
 		container.style.background = `linear-gradient(330deg, rgba(${gradient[0]}, 0.15) 0%, rgba(${gradient[1]}, 0.8) 100%`
 		canvas.style.backgroundImage = `url(${art})`
+		if (dir) {
+			container.style.flexDirection = 'row'
+			profileTop.style.flexDirection = 'row'
+			canvas.style.backgroundPosition = 'left'
+			canvas.style.marginRight = '1rem'
+		} else {
+			container.style.flexDirection = 'row-reverse'
+			canvas.style.backgroundPosition = 'right'
+			profileTop.style.flexDirection = 'row-reverse'
+			canvas.style.marginLeft = '1rem'
+		}
+		if (!pic) {
+			img.style.imageRendering = '-moz-crisp-edges'
+			img.style.imageRendering = '-webkit-crisp-edges'
+			img.style.imageRendering = 'crisp-edges'
+			img.style.imageRendering = 'pixelated'
+		}
 	})
 </script>
 
 <div class="container" id={name.toLowerCase()} bind:this={container}>
 	<canvas bind:this={canvas} />
 	<div class="profile">
-		<div class="profile-top">
+		<div class="profile-top" bind:this={profileTop}>
 			<div class="socials">
 				<h1>Redes Sociais:</h1>
 				{#each profiles as profile}
@@ -40,21 +61,30 @@
 					</p>
 				{/each}
 			</div>
-			<img class="profilePic" src={profilePic} alt={name} />
+			<img
+				class="profilePic"
+				bind:this={img}
+				src={profilePic}
+				alt={name}
+			/>
 		</div>
-		<p>{message}</p>
+		<p class="message">{message}</p>
 	</div>
 </div>
 
 <style>
+	div {
+		display: flex;
+	}
 	.container {
+		margin: 1rem 0;
 		padding: 2rem;
 		border-radius: 1rem;
 		width: 50%;
 		justify-content: space-between;
 	}
 	canvas {
-		width: 16rem;
+		width: 30%;
 		height: 16rem;
 		image-rendering: -moz-crisp-edges;
 		image-rendering: -webkit-crisp-edges;
@@ -63,20 +93,17 @@
 		background-repeat: no-repeat;
 		background-size: contain;
 	}
-	div {
-		display: flex;
-	}
 	.socials {
 		flex-direction: column;
 	}
 	.profile {
 		flex-direction: column;
 		justify-content: center;
+		width: 100%;
 	}
 	.profile-top {
 		width: 100%;
-		justify-content: space-between;
-		align-items: flex-start;
+		justify-content: space-around;
 	}
 	.profilePic {
 		border-radius: 50%;
@@ -108,8 +135,41 @@
 		opacity: 0.8;
 	}
 	a:hover {
-		box-shadow: inset 120px 0 0 0 rgba(68, 157, 171);
+		box-shadow: inset 10rem 0 0 0 rgba(68, 157, 171);
 		color: #32344a;
 		opacity: 0.6;
+	}
+	.message {
+		text-indent: 1rem;
+		margin-top: 1rem;
+	}
+	@media screen and (max-width: 1200px) and (min-width: 1000px) {
+		canvas {
+			width: 20%;
+		}
+	}
+	@media screen and (max-width: 992px) {
+		.container {
+			flex-direction: column-reverse !important;
+			align-items: center;
+		}
+		canvas {
+			width: inherit;
+			margin: 0 !important;
+			margin-top: 1rem !important;
+			background-position: center !important;
+		}
+	}
+	@media screen and (max-width: 800px) {
+		.profile-top {
+			flex-direction: column-reverse !important;
+			align-items: center;
+			margin-bottom: 1rem;
+		}
+	}
+	@media screen and (max-width: 600px) {
+		.container {
+			width: 80%;
+		}
 	}
 </style>

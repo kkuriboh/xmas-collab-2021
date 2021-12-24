@@ -1,4 +1,4 @@
-<section id="Collab">
+<section id="collab">
 	<canvas />
 </section>
 
@@ -12,6 +12,12 @@
 		image-rendering: crisp-edges;
 		background-repeat: no-repeat;
 		background-size: contain;
-		background-image: url('/images/cenario.png');
+		background-image: url('/images/collab.png');
+	}
+	@media screen and (max-width: 600px) {
+		canvas {
+			width: 20rem;
+			height: 30rem;
+		}
 	}
 </style>

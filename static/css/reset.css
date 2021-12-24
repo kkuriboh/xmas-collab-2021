@@ -1,8 +1,3 @@
-@font-face {
-	font-family: 'FiraCodeNerdFont';
-	src: url('/fonts/FiracodeNerdFont.otf') url('/fonts/FiracodeNerdFont.ttf');
-}
-
 html,
 body,
 div,
@@ -90,6 +85,9 @@ video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+	scroll-margin-top: 4rem;
 }
 /* HTML5 display-role reset for older browsers */
 article,
@@ -108,7 +106,6 @@ section {
 body {
 	line-height: 1;
 	background-color: #24283b;
-	scroll-behavior: smooth;
 }
 ol,
 ul {
@@ -128,4 +125,7 @@ q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+a {
+	text-decoration: none;
 }

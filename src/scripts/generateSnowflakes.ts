@@ -1,7 +1,7 @@
 export default function generateSnowflakes() {
-	const body = document.querySelector('body')
-	for (let i = 0; i < 50; i++) {
-		body.insertAdjacentHTML(
+	const container = document.querySelector('#snowflakes')
+	for (let i = 0; i < 200; i++) {
+		container.insertAdjacentHTML(
 			'afterbegin',
 			`<span class="snowflake" id="snowflake-${i}"/>`
 		)
@@ -11,23 +11,22 @@ export default function generateSnowflakes() {
 			'snowflake'
 		) as HTMLCollectionOf<HTMLSpanElement>
 	)
-	const animation = (posX: number) => {
-		const random = Math.random() * 100
-
+	const animation = () => {
+		let random = Math.random() * 100
 		return [
 			{
-				transform: `translateY(${Math.random() * -20}vh)`,
-			},
-			{
 				transform: `translate(${
-					Math.round(random) % 2 === 0 ? random * -1 : random - posX
-				}vw, 100vh)`,
+					Math.round(random) % 2 === 0 ? random * -1 : random
+				}vw, 105vh)`,
 			},
 		]
 	}
 	snowflakes.forEach((snowflake) => {
+		const bounds = `${Math.floor(Math.random() * 8)}px`
 		snowflake.style.left = `${Math.floor(Math.random() * 100)}%`
-		snowflake.animate(animation(snowflake.getBoundingClientRect().left), {
+		snowflake.style.width = bounds
+		snowflake.style.height = bounds
+		snowflake.animate(animation(), {
 			duration: Math.floor(Math.random() * 15000) + 1000,
 			iterations: Infinity,
 		})
