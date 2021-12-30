@@ -3,7 +3,7 @@ export default {
 		{
 			name: 'Player_DBR',
 			pic: true,
-			message: '',
+			message: 'Quer presente de natal? Pega aqui no saco do papai noel!',
 			socials: [
 				{
 					name: 'Instagram',
@@ -53,7 +53,7 @@ export default {
 		{
 			name: 'Gabu',
 			pic: true,
-			message: '',
+			message: 'fazendo e vivendo a arte',
 			socials: [
 				{
 					name: 'Twitter',
@@ -255,13 +255,18 @@ export default {
 		},
 		{
 			name: 'Leticia',
-			pic: false,
-			message: '',
+			pic: true,
+			message: 'Lilian curtindo o verão',
 			socials: [
 				{
 					name: 'Twitter',
 					account: '@Leliys_art',
 					url: 'https://twitter.com/Leliys_art',
+				},
+				{
+					name: 'Artstation',
+					account: 'Leliys_art',
+					url: 'https://www.artstation.com/leliys_art',
 				},
 			],
 		},
@@ -302,22 +307,46 @@ export default {
 				},
 			],
 		},
+		// {
+		// 	name: 'Vincy',
+		// 	pic: false,
+		// 	message: '',
+		// 	socials: [
+		// 		{
+		// 			name: 'Twitter',
+		// 			account: '@V_incy',
+		// 			url: 'https://twitter.com/V_incy',
+		// 		},
+		// 		{
+		// 			name: 'Twitch',
+		// 			account: 'V_incy',
+		// 			url: 'https://www.twitch.tv/v_incy',
+		// 		},
+		// 	],
+		// },
 		{
-			name: 'Vincy',
-			pic: false,
+			name: 'Kaitsu',
+			pic: true,
 			message: '',
 			socials: [
 				{
 					name: 'Twitter',
-					account: '@V_incy',
-					url: 'https://twitter.com/V_incy',
-				},
-				{
-					name: 'Twitch',
-					account: 'V_incy',
-					url: 'https://www.twitch.tv/v_incy',
+					account: '@KaitsuHitsuri',
+					url: 'https://twitter.com/KaitsuHitsuri',
 				},
 			],
+		},
+		{
+			name: 'Hyochi',
+			pic: false,
+			message: '',
+			socials: [],
+		},
+		{
+			name: 'SrVader',
+			pic: false,
+			message: '',
+			socials: [],
 		},
 	],
 }

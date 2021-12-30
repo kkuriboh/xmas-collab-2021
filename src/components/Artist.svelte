@@ -109,6 +109,7 @@
 		border-radius: 50%;
 		border: 2px solid #ad8ee6;
 		height: 8rem;
+		width: 8rem;
 		margin-bottom: 2rem;
 	}
 	.socialName {

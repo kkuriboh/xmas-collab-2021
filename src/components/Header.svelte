@@ -86,6 +86,7 @@
 		listItems.forEach((item) => {
 			item.addEventListener('click', () => {
 				if (isPhone) {
+					revAnim()
 					list.style.display = 'none'
 				}
 			})
